@@ -52,3 +52,6 @@ properly! You do not want to leave passwords and authentication tokens
 visible to everybody, so you will use the [secrets
 mechanism](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions?tool=cli).
 
+# COMMENTO TEST PER TRIGGER
+
+
