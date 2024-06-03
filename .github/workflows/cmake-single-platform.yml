@@ -49,3 +49,6 @@ jobs:
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{env.BUILD_TYPE}}
+
+    - name: Sing Container
+      run: sudo singularity build my_container.sif Singularity.def
