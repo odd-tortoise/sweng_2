@@ -29,7 +29,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y cmake make gcc g++ libopenmpi-dev
 
     - name: Install Sing Dep
-      run: sudo apt-get update && sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev wget pkg-config git libfuse2
+      run: sudo apt-get update && sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev wget pkg-config git libfuse2 fuse2fs
     
     - name: Install Sing
       #run : sudo apt-get update && sudo apt-get install -y singularity-container
