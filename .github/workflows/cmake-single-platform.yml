@@ -29,13 +29,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y cmake make gcc g++ libopenmpi-dev
 
     - name: Install Sing Dep
-      run: sudo apt-get update && sudo apt-get install -y build-essential libssl-dev uuid-dev \
-            libgpgme11-dev \
-            squashfs-tools \
-            libseccomp-dev \
-            wget \
-            pkg-config \
-            git
+      run: sudo apt-get update && sudo apt-get install -y build-essential libssl-dev uuid-dev libgpgme11-dev squashfs-tools libseccomp-dev wget pkg-config git
     
     - name: Install Sing
       run : wget https://github.com/sylabs/singularity/releases/download/v4.1.3/singularity-ce_4.1.3-jammy_amd64.deb && sudo dpkg -i singularity-ce_4.1.3-jammy_amd64.deb
