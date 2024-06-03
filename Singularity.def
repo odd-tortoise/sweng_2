@@ -1,0 +1,24 @@
+Bootstrap: library
+From: ubuntu:22.04
+Stage: build
+
+	
+%environment
+	export LISTEN_PORT=54321
+	export LC_ALL=C
+	
+	
+%post
+    apt-get update && apt-get install -y \
+    cmake \
+    git \
+    build-essential \
+    openmpi-bin libopenmpi-dev
+    git clone --recursive https://github.com/odd-tortoise/sweng_2.git
+    cd sweng_2
+    mkdir build
+    cd build
+    cmake ..
+    cmake --build .
+    ctest
+    
