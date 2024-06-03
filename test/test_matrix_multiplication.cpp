@@ -79,28 +79,6 @@ TEST(MatrixMultiplicationTest, TestMultipyZeros) {
 }
 
 
-
-TEST(MatrixMultiplicationTest, TestCommutativy) {
-     std::vector<std::vector<int>> A = {
-        {8, 0},
-        {4, 8}
-    };
-    std::vector<std::vector<int>> B = {
-        {7, 0},
-        {9, 10}
-    };
-    std::vector<std::vector<int>> C(2, std::vector<int>(2, 0));
-    std::vector<std::vector<int>> D(2, std::vector<int>(2, 0));
-
-    multiplyMatrices(A, B, C, 2, 2, 2);
-     multiplyMatrices(B, A, D, 2, 2, 2);
-
-    ASSERT_EQ(C, D) << "Matrix multiplication test failed! :(((()";
-}
-
-
-
-
 TEST(MatrixMultiplicationTest, TestNegativeNumbers) {
     std::vector<std::vector<int>> A = {
         {-1, 2, 3},
