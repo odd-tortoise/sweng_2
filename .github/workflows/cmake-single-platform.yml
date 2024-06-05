@@ -78,3 +78,14 @@ jobs:
         sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_USER@login.g100.cineca.it:output.txt .
         sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_USER@login.g100.cineca.it:error.txt .
 
+    - name: Upload Output log
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: output
+        path: output.txt
+
+    - name: Upload Error log
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: error
+        path: error.txt
