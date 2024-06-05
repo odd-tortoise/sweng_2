@@ -1,7 +1,5 @@
 #!/bin/bash
 
-module load singularity
-
 SING_IMG = my_container.sif
 
 export TMPDIR = $HOME/tmp
