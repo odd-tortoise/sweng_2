@@ -2,9 +2,6 @@ Bootstrap: library
 From: ubuntu:22.04
 Stage: build
 
-%files
-    ./ /project/
-
 %post
     apt-get update && apt-get install -y \
     cmake \
@@ -17,6 +14,5 @@ Stage: build
     cd build
     cmake ..
     cmake --build .
-    cp main ..
-    cd ..
+   
 
