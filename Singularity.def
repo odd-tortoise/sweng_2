@@ -20,5 +20,7 @@ Stage: build
     cd build
     cmake ..
     cmake --build .
-    ctest
+
+%runscript
+mpirun -np 2 ./src/main > ../output.txt 2> ../errors.txt
     
