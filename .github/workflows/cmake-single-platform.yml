@@ -69,6 +69,7 @@ jobs:
         SSH_PASS: ${{ secrets.CINECA_PASS }}
       run: |
         sshpass -p $SSH_PASS ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_USER@login.g100.cineca.it 'sbatch job.sh'
+        sleep 30
       
     - name: Download
       env: 
