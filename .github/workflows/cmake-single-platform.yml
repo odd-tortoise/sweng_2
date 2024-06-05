@@ -56,5 +56,7 @@ jobs:
     - name: Sing Run
       run: |
          chmod +x ./job.sh
-         ./job.sh
-      shell: bash
+         'sbatch' < job.sh
+
+
+      
