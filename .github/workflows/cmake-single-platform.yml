@@ -54,4 +54,4 @@ jobs:
       run: sudo singularity build my_container.sif Singularity.def
 
     - name: Sing Run
-      run: sudo singularity run my_container.sif
+      run: sudo singularity run --writable my_container.sif
