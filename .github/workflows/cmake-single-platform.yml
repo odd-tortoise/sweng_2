@@ -53,10 +53,29 @@ jobs:
     - name: Sing Container
       run: sudo singularity build my_container.sif Singularity.def
 
-    - name: Sing Run
+    - name: Install sshpass
+      run: sudo apt-get install sshpass 
+       
+    - name: Transfer data
+      env: 
+        SSH_USER: ${{ secrets.CINECA_USERNAME }}
+        SSH_PASS: ${{ secrets.CINECA_PASS }}
       run: |
-         chmod +x ./job.sh
-         'sbatch' < job.sh
+        sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null job.sh my_container.sif matrixA.txt matrixB.txt $SSH_USER@login.g100.cineca.it:.
 
+    - name: Run job 
+      env: 
+        SSH_USER: ${{ secrets.CINECA_USERNAME }}
+        SSH_PASS: ${{ secrets.CINECA_PASS }}
+      run: |
+        sshpass -p $SSH_PASS ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_USER@login.g100.cineca.it 'sbatch job.sh'
+        sleep 30
 
-      
+    - name: Download
+      env: 
+        SSH_USER: ${{ secrets.CINECA_USERNAME }}
+        SSH_PASS: ${{ secrets.CINECA_PASS }}
+      run: |
+        sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_USER@login.g100.cineca.it:output.txt .
+        sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $SSH_USER@login.g100.cineca.it:error.txt .
+
