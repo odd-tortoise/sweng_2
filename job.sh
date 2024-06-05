@@ -1,3 +1,3 @@
 #!/bin/bash
 
-singularity exec --bind my_container.sif
+singularity run my_container.sif
